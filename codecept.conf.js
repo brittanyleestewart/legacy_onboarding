@@ -11,10 +11,15 @@ exports.config = {
     WebDriver: {
       url: 'http://localhost',
       browser: 'chrome'
-    }
+    },
+    ObituaryHelper: {
+      require: './custom_helpers/obituaryHelper.js',
+    },
+
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    janusObituaryPage: './pages/janusObituaryPage'
   },
   bootstrap: null,
   mocha: {},
