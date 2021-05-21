@@ -1,4 +1,5 @@
 const expect = require('chai').expect
+const { janusObituaryPage } = inject();
 
 Feature('obituaries')
     //tag for onboarding tasks
@@ -6,21 +7,23 @@ Feature('obituaries')
 
 Scenario('Verify that a user can add a message to the decedent guestbook',
 
-    async ({ I }) => {
+    async ({ I, janusObituaryPage }) => {
+        const url = await janusObituaryPage.getObituaryRecord();
 
-        I.amOnPage('https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=196167379'); // opens qa-legacy site
+        I.amOnPage(url)
+        //I.amOnPage('https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=196167379'); // opens qa-legacy site
         I.seeElement('[data-component="NameHeadingText"]');
 
         //Confirm first name
-        let headerText = await I.grabTextFrom('[data-component="NameHeadingText"]');
+        let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
         expect(headerText).to.contain('Virginia')
 
         //Fill in Guest book fields
-        I.scrollTo('[data-component="TextBoxField"]');
-        I.fillField('[data-component="TextBoxField"]', 'Tester Testing');
-        I.fillField('[data-component="TextAreaField"]', 'This is a Test message for onboarding task 1');
-        I.fillField('[data-component="EmailField"]', 'bstewart@qualityworkscg.com');
+        I.scrollTo(janusObituaryPage.fields.yourName);
+        I.fillField(janusObituaryPage.fields.yourName, 'Tester Testing');
+        I.fillField(janusObituaryPage.fields.yourMessage, 'This is a Test message for onboarding task 1');
+        I.fillField(janusObituaryPage.fields.yourEmail, 'bstewart@qualityworkscg.com');
 
         //To click submit button
-        I.click('[data-component="GuestbookSubmitButton"]')
+        janusObituaryPage.createGuestBookEntry(janusObituaryPage.fields.yourName, janusObituaryPage.fields.yourMessage, janusObituaryPage.fields.yourEmail)
     });
