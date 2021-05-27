@@ -27,7 +27,7 @@ const pageObj = {
   getObituaryRecord: async () => {
     const obit = await I.getJanusPersonRecord();
 
-    return `www.qa-legacy.com/us/obituaries/${obit.Source}/name/${obit.firstName}-${obit.lastName}-obituary?pid=${obit.personID}`
+    return `https://www.qa-legacy.com/us/obituaries/${obit.Source}/name/${obit.FirstName}-${obit.LastName}-obituary?pid=${obit.PersonId}`
   },
 }
 
