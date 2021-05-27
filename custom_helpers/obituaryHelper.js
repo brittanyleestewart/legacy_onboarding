@@ -1,7 +1,7 @@
 const {
     retrieveFromLegacyDB,
     getSingleResultFromQueryset
-} = require('./utils');
+} = require('../utils');
 
 class ObituaryHelper extends Helper {
 

@@ -1,22 +1,7 @@
 require('dotenv').config();
 const sql = require('mssql');
 const assert = require('chai').assert;
-
-const legacyDBConfig = {
-    user: process.env.LEGACYDB_USER,
-    password: process.env.LEGACYDB_PASSWORD,
-    server: 'DevDbAws.legacy.com',
-    database: process.env.LEGACYDB_SCHEMA,
-    connectionTimeout: 60000,
-    requestTimeout: 60000,
-
-    options: {
-        encrypt: false,
-        port: process.env.LEGACYDB_PORT,
-        instanceName: 'QA',
-        enableArithAbort: true,
-    },
-};
+const { getLegacyDbConfig } = require('./environment')
 
 /**
  * Retrieves a single result from the Queryset
@@ -42,11 +27,18 @@ function getSingleResultFromQueryset(result) {
  * @returns {Object} database record
  */
 async function retrieveFromLegacyDB(query) {
+
+    const legacyDBConfig = getLegacyDbConfig()
+
+    console.log(legacyDBConfig);
+
     let pool;
 
     try {
         pool = await sql.connect(legacyDBConfig);
+        console.log(pool);
         const result = await pool.request().query(query);
+        console.log(result);
 
         if (typeof result == 'undefined') {
             assert.fail('No recordset returned');

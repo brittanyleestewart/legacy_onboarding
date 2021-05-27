@@ -15,11 +15,12 @@ Scenario('Verify that a user can add a message to the decedent guestbook',
         I.seeElement('[data-component="NameHeadingText"]');
 
         //Confirm first name
-        let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
-        expect(headerText).to.contain('Virginia')
+        //let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
+        //expect(headerText).to.contain('Virginia')
 
         //Fill in Guest book fields
         I.scrollTo(janusObituaryPage.fields.yourName);
+        I.click(janusObituaryPage.fields.yourName);
         I.fillField(janusObituaryPage.fields.yourName, 'Tester Testing');
         I.fillField(janusObituaryPage.fields.yourMessage, 'This is a Test message for onboarding task 1');
         I.fillField(janusObituaryPage.fields.yourEmail, 'bstewart@qualityworkscg.com');
