@@ -16,6 +16,12 @@ exports.config = {
       require: './custom_helpers/obituaryHelper.js',
     },
 
+    REST: {
+      endpoint: "https://www.qa-legacy.com/",
+
+
+    },
+
   },
   include: {
     I: './steps_file.js',
