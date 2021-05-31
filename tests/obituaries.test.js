@@ -15,7 +15,7 @@ Scenario('Verify that a user can add a message to the decedent guestbook',
         I.seeElement('[data-component="NameHeadingText"]');
 
         //Confirm first name
-        //let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
+        // let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
         //expect(headerText).to.contain('Virginia')
 
         //Fill in Guest book fields
