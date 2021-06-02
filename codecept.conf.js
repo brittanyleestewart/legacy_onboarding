@@ -1,37 +1,33 @@
-const { setHeadlessWhen } = require('@codeceptjs/configure');
-
-// turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
-
 exports.config = {
-  tests: 'tests/*.test.js',
   output: './output',
   helpers: {
     WebDriver: {
       url: 'http://localhost',
-      browser: 'chrome',
+      browser: 'chrome'
     },
-
     ObituaryHelper: {
-      require: './custom_helpers/obituaryHelper.js',
+      require: './custom_helpers/obituaryHelper.js'
     },
-
     REST: {
-      endpoint: "https://www.qa-legacy.com/",
-
-
-    },
-
+      endpoint: 'https://www.qa-legacy.com/'
+    }
   },
   include: {
     I: './steps_file.js',
     janusObituaryPage: './pages/janusObituaryPage'
   },
-  bootstrap: null,
   mocha: {},
-  name: 'legacy',
+  bootstrap: null,
+  teardown: null,
+  hooks: [],
+  gherkin: {
+    features: './features/*.feature',
+    steps: ['./step_definitions/steps.js']
+  },
   plugins: {
+    screenshotOnFail: {
+      enabled: true
+    },
     wdio: {
       enabled: true,
       services: ['selenium-standalone']
@@ -42,9 +38,8 @@ exports.config = {
     },
     tryTo: {
       enabled: true
-    },
-    screenshotOnFail: {
-      enabled: true
     }
-  }
+  },
+  tests: 'tests/*.test.js',
+  name: 'legacy'
 }
