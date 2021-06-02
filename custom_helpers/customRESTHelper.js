@@ -6,9 +6,9 @@ const url = require('url');
 class CustomRESTHelper extends REST {
     constructor(config) {
         super(config);
-    }
+    };
 
-    async sendGetRequest(requestUrl, headers = {}) {
+    /*async sendGetRequest(requestUrl, headers = {}) {
         const request = {
             baseURL: this._url(requestUrl),
             method: 'GET',
@@ -16,6 +16,5 @@ class CustomRESTHelper extends REST {
             maxRedirects: 0,
         };
 
-        return this._executeRequest(request);
-    }
+        return this._executeRequest(request);*/
 }

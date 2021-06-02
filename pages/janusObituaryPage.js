@@ -36,12 +36,6 @@ const pageObj = {
 
     return `https://www.qa-legacy.com/us/obituaries/${obit.Source}/name/${obit.FirstName}-${obit.LastName}-obituary?pid=${obit.PersonId}`
   },
-}
-
-/*getObitRecord: async () => {
-  const obitBad = await I.getJanusPersonRecord();
-
-  return 'https://www.qa-legacy.com/us/obituaries/bismarcktribune/name/daniel-fisher-obituary?pid=00'
-},*/
+};
 
 module.exports = pageObj;

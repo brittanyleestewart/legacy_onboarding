@@ -10,8 +10,9 @@ exports.config = {
   helpers: {
     WebDriver: {
       url: 'http://localhost',
-      browser: 'chrome'
+      browser: 'chrome',
     },
+
     ObituaryHelper: {
       require: './custom_helpers/obituaryHelper.js',
     },
