@@ -3,7 +3,11 @@ const { janusObituaryPage } = inject();
 
 Feature('bogusObituaries')
     //tag for onboarding tasks
-    .tag('@onboarding').tag('@currentTest');
+    .tag('@onboarding')
+    .tag('@currentTest')
+    .tag('@obitPage')
+    .tag('@REST')
+    .tag('@only-qa');
 
 //Data-Driven test
 let obituaries = new DataTable(['url', 'status']);

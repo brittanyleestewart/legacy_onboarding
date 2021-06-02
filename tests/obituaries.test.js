@@ -3,7 +3,10 @@ const { janusObituaryPage } = inject();
 
 Feature('obituaries')
     //tag for onboarding tasks
-    .tag('@onboarding');
+    .tag('@onboarding')
+    .tag('@obitPage')
+    .tag('@Webdriver')
+    .tag('@only-qa');
 
 Scenario('Verify that a user can add a message to the decedent guestbook',
 
