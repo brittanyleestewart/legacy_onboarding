@@ -3,20 +3,23 @@ const { janusObituaryPage } = inject();
 
 Feature('obituaries')
     //tag for onboarding tasks
-    .tag('@onboarding');
+    .tag('@onboarding')
+    .tag('@obitPage')
+    .tag('@Webdriver')
+    .tag('@only-qa');
 
 Scenario('Verify that a user can add a message to the decedent guestbook',
 
     async ({ I, janusObituaryPage }) => {
         const url = await janusObituaryPage.getObituaryRecord();
 
-        I.amOnPage(url)
-        //I.amOnPage('https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=196167379'); // opens qa-legacy site
+        I.amOnPage(url);
         I.seeElement('[data-component="NameHeadingText"]');
+        //I.amOnPage('https://www.qa-legacy.com/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=196167379'); // opens qa-legacy site
 
         //Confirm first name
-        //let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
-        //expect(headerText).to.contain('Virginia')
+        let headerText = await I.grabTextFrom(janusObituaryPage.fields.headerText);
+        expect(headerText).to.contain('Virginia')
 
         //Fill in Guest book fields
         I.scrollTo(janusObituaryPage.fields.yourName);
