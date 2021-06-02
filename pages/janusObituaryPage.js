@@ -8,7 +8,10 @@ const pageObj = {
   fields: {
     yourName: '[data-component="TextBoxField"]',
     yourMessage: '[data-component="TextAreaField"]',
-    yourEmail: '[data-component="EmailField"]'
+    yourEmail: '[data-component="EmailField"]',
+
+    //locator for REST helper
+    testCode: '[data-component="ErrorCodeBox"]'
   },
   submitButton: { css: '[data-component="GuestbookSubmitButton"]' },
 
@@ -23,12 +26,16 @@ const pageObj = {
     I.click(this.submitButton)
   },
 
+  getTestCode(testCode) {
+    I.seeElement('[data-component="ErrorCodeBox"]')
+  },
+
   //Functions
   getObituaryRecord: async () => {
     const obit = await I.getJanusPersonRecord();
 
     return `https://www.qa-legacy.com/us/obituaries/${obit.Source}/name/${obit.FirstName}-${obit.LastName}-obituary?pid=${obit.PersonId}`
   },
-}
+};
 
 module.exports = pageObj;
