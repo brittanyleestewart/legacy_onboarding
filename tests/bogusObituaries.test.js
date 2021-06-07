@@ -4,7 +4,7 @@ const { janusObituaryPage } = inject();
 Feature('bogusObituaries')
     //tag for onboarding tasks
     .tag('@onboarding')
-    .tag('@currentTest')
+    //.tag('@currentTest')
     .tag('@obitPage')
     .tag('@REST')
     .tag('@only-qa');

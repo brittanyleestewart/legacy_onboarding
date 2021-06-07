@@ -17,8 +17,12 @@ const pageObj = {
 
   //Introducing methods
   submitForm(yourName, yourMessage, yourEmail) {
+    I.click(this.fields.yourName)
+    I.scrollTo(this.fields.yourName)
     I.fillField(this.fields.yourName, yourName);
+    I.scrollTo(this.fields.yourMessage)
     I.fillField(this.fields.yourMessage, yourMessage);
+    I.scrollTo(this.fields.yourEmail)
     I.fillField(this.fields.yourEmail, yourEmail);
   },
 

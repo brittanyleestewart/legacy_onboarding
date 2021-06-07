@@ -6,3 +6,5 @@ Feature: Janus Obituaries: 404 Pages
     Given I attempt to access a Janus Obituary for a bogus person ID
     Then I should see the Janus 404 page
     And I should see the following elements
+      | Elements  |
+      | image div |
